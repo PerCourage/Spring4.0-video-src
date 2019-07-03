@@ -14,43 +14,54 @@ import com.test.service.SomServiceImpl;
 public class Mytest {
 	@Test
 	public void test01(){
-		//´´½¨ÈİÆ÷¶ÔÏó
+		//åˆ›å»ºå®¹å™¨å¯¹è±¡
 		ISomeService service = new SomServiceImpl(); 
 		service.doSome();
 	}
 	@Test
 	public void test02(){
-		//´´½¨ÈİÆ÷¶ÔÏó,¼ÓÔØSpringÅäÖÃÎÄ¼ş
-		//»á´ÓÀàÂ·¾¶ÏÂ²éÕÒÅäÖÃÎÄ¼ş
+		//åˆ›å»ºå®¹å™¨å¯¹è±¡,åŠ è½½Springé…ç½®æ–‡ä»¶
+		//ä¼šä»ç±»è·¯å¾„ä¸‹æŸ¥æ‰¾é…ç½®æ–‡ä»¶
+		//é…ç½®æ–‡ä»¶æ”¾åœ¨srcç›®å½•ä¸‹
 		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 		ISomeService service = (ISomeService) ac.getBean("myservice"); 
 		service.doSome();
 	}
 	@Test
 	public void test03(){
-		//´´½¨ÈİÆ÷¶ÔÏó
+		
+		/**
+		 *	åˆ›å»ºå®¹å™¨å¯¹è±¡
+		 *  åœ¨åº”ç”¨æ ¹ç›®å½•ä¸‹æŸ¥æ‰¾é…ç½®æ–‡ä»¶
+		 * 	å°†é…ç½®æ–‡ä»¶æ”¾åœ¨å½“å‰é¡¹ç›®æ ¹è·¯å¾„
+		 */
 		ApplicationContext ac = new FileSystemXmlApplicationContext("applicationContext.xml");
 		ISomeService service = (ISomeService) ac.getBean("myservice"); 
 		service.doSome();
 	}
+
+	@Test
+	public void test04(){
+		//åˆ›å»ºå®¹å™¨å¯¹è±¡
+		//åœ¨ç¡¬ç›˜ä½ç½®æŸ¥æ‰¾é…ç½®æ–‡ä»¶
+		ApplicationContext ac = new FileSystemXmlApplicationContext("d:\applicationContext.xml");
+		ISomeService service = (ISomeService) ac.getBean("myservice"); 
+		service.doSome();
+	}
 	
-	//ApplicationContext ÓëBeanFactoryÈİÆ÷µÄÇø±ğ
-	/*	ÕâÁ½¸öÈİÆ÷¶ÔÓÚÆäÖĞBeanµÄ´´½¨Ê±»ú²»Í¬
-	 * 	1)ApplicationContext ÈİÆ÷£¬»áÔÚÈİÆ÷¶ÔÏó³õÊ¼»¯Ê±£¬½«ÆäÖĞµÄËùÓĞBean(¶ÔÏó)½øĞĞ´´½¨
-	 * 		È±µã£ºÕ¼ÓÃÏµÍ³×ÊÔ´£¨ÄÚ´æ¡¢cpuµÈ£©
-	 * 		ÓÅµã£ºÏìÓ¦ËÙ¶È¿ì
-		2)BeanFactoryÈİÆ÷ÖĞµÄ¶ÔÏó£¬ÔÚÈİÆ÷³õÊ¼»¯Ê±²»»á±»´´½¨£¬¶øÊÇÔÚÕæÕı»ñÈ¡¸Ã¶ÔÏóÊ±²Å±»´´½¨
-			È±µã£ºÏìÓ¦ËÙ¶ÈÂı
-			ÓÅµã£º²»¶àÕ¼ÓÃÏµÍ³×ÊÔ´
+	//ApplicationContext ä¸BeanFactoryå®¹å™¨çš„åŒºåˆ«
+	/*	è¿™ä¸¤ä¸ªå®¹å™¨å¯¹äºå…¶ä¸­Beançš„åˆ›å»ºæ—¶æœºä¸åŒ
+	 * 	1)ApplicationContext å®¹å™¨ï¼Œä¼šåœ¨å®¹å™¨å¯¹è±¡åˆå§‹åŒ–æ—¶ï¼Œå°†å…¶ä¸­çš„æ‰€æœ‰Bean(å¯¹è±¡)è¿›è¡Œåˆ›å»º
+	 * 		ç¼ºç‚¹ï¼šå ç”¨ç³»ç»Ÿèµ„æºï¼ˆå†…å­˜ã€cpuç­‰ï¼‰
+	 * 		ä¼˜ç‚¹ï¼šå“åº”é€Ÿåº¦å¿«
+		2)BeanFactoryå®¹å™¨ä¸­çš„å¯¹è±¡ï¼Œåœ¨å®¹å™¨åˆå§‹åŒ–æ—¶ä¸ä¼šè¢«åˆ›å»ºï¼Œè€Œæ˜¯åœ¨çœŸæ­£è·å–è¯¥å¯¹è±¡æ—¶æ‰è¢«åˆ›å»º
+			ç¼ºç‚¹ï¼šå“åº”é€Ÿåº¦æ…¢
+			ä¼˜ç‚¹ï¼šä¸å¤šå ç”¨ç³»ç»Ÿèµ„æº
 	*/
-	
-	
-	
-	
 	
 	@Test
 	public void test05(){
-		//´´½¨ÈİÆ÷¶ÔÏó
+		//åˆ›å»ºå®¹å™¨å¯¹è±¡
 		BeanFactory bf=new XmlBeanFactory(new ClassPathResource("applicationContext.xml"));
 		ISomeService service = (ISomeService) bf.getBean("myservice"); 
 		service.doSome();
